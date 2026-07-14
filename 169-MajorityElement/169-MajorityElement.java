@@ -1,0 +1,27 @@
+// Last updated: 7/14/2026, 2:50:27 PM
+class Solution {
+    public int majorityElement(int[] nums) {
+        int el = nums[0];
+        int count = 0;
+        for(int i = 0; i <= nums.length -1; i++){
+            if(count == 0){
+                count = 1;
+                el = nums[i];
+            }
+            else if(el == nums[i]){
+                count++;
+            }
+            else{
+                count--;
+            }
+        }
+        int count1 = 0;
+        for(int i = 0; i <= nums.length - 1; i++){
+            if(el == nums[i]) count1++;
+        }
+        if(count1 > nums.length / 2){
+            return el;
+        }
+        return -1;
+    }
+}
